@@ -39,12 +39,12 @@ class Spiel
      */
     private void raeumeAnlegen()
     {
-        Raum hauptRaum, büro, lager,untererMotor, obererMotor, reaktor, 
+        Raum hauptRaum, buero, lager,untererMotor, obererMotor, reaktor, 
         sicherheitsRaum, ersteHilfe, elektronik;
 
         // die Räume erzeugen
         hauptRaum = new Raum("in dem Hauptraum");
-        büro = new Raum("in dem Büro");
+        buero = new Raum("in dem Büro");
         lager = new Raum("in dem Lager");
         untererMotor = new Raum("in dem unteren Motorraum");
         obererMotor = new Raum("in dem oberen Motorraum");
@@ -56,34 +56,34 @@ class Spiel
         // // die Ausgänge initialisieren, dies setzt die Bezeichnungen,
         // // die der Spieler zum Weitergehen eingeben muss.
         // // man kann also denselben Ausgang unterschiedlich bezeichnen
-        // draussen.setzeAusgang("east", hoersaal);
-        // draussen.setzeAusgang("south", labor);
-        // draussen.setzeAusgang("west", cafeteria);
+        hauptRaum.setzeAusgang("rechts", buero);
+        hauptRaum.setzeAusgang("oben", obererMotor);
+        hauptRaum.setzeAusgang("unten", lager);
 
-        // hoersaal.setzeAusgang("west", draussen);
+        lager.setzeAusgang("links", elektronik);
+        lager.setzeAusgang("unten", untererMotor);
+        lager.setzeAusgang("oben", hauptRaum);
 
-        // cafeteria.setzeAusgang("east", draussen);
+        elektronik.setzeAusgang("rechts", lager);
 
-        // labor.setzeAusgang("north", draussen);
-        // labor.setzeAusgang("east", buero);
-
-        // buero.setzeAusgang("west", labor);
-
-        // draussen.setzeAusgang("Osten", hoersaal);
-        // draussen.setzeAusgang("Osten", hoersaal);
-        // draussen.setzeAusgang("Süden", labor);
-        // draussen.setzeAusgang("Westen", cafeteria);
-
-        // hoersaal.setzeAusgang("Westen", draussen);
-
-        // cafeteria.setzeAusgang("Osten", draussen);
-
-        // labor.setzeAusgang("Norden", draussen);
-        // labor.setzeAusgang("Osten", buero);
-
-        // buero.setzeAusgang("Westen", labor);
-
-        // aktuellerRaum = draussen;  // das Spiel startet draussen
+        untererMotor.setzeAusgang("oben", lager);
+        
+        buero.setzeAusgang("links", hauptRaum);
+        buero.setzeAusgang("oben", ersteHilfe);
+        
+        ersteHilfe.setzeAusgang("unten", buero);
+        ersteHilfe.setzeAusgang("oben", sicherheitsRaum);
+        
+        sicherheitsRaum.setzeAusgang("unten", ersteHilfe);
+        sicherheitsRaum.setzeAusgang("links", obererMotor);
+        
+        obererMotor.setzeAusgang("rechts", sicherheitsRaum);
+        obererMotor.setzeAusgang("links", reaktor);
+        obererMotor.setzeAusgang("unten", hauptRaum);
+        
+        reaktor.setzeAusgang("rechts", obererMotor);
+    
+        aktuellerRaum = hauptRaum;  // das Spiel startet draussen
     }
 
     /**
