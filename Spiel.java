@@ -39,15 +39,20 @@ class Spiel
      */
     private void raeumeAnlegen()
     {
-        Raum hauptRaum;
+        Raum hauptRaum, büro, lager,untererMotor, obererMotor, reaktor, 
+        sicherheitsRaum, ersteHilfe, elektronik;
 
         // die Räume erzeugen
-        hauptRaum = new Raum("vor dem Haupteingang der Universität");
-        // hoersaal = new Raum("in einem Vorlesungssaal");
-        // cafeteria = new Raum("in der Cafeteria der Uni");
-        // labor = new Raum("in einem Rechnerraum");
-        // buero = new Raum("im Verwaltungsbüro der Informatik");
-
+        hauptRaum = new Raum("in dem Hauptraum");
+        büro = new Raum("in dem Büro");
+        lager = new Raum("in dem Lager");
+        untererMotor = new Raum("in dem unteren Motorraum");
+        obererMotor = new Raum("in dem oberen Motorraum");
+        reaktor = new Raum("in dem Reaktor");
+        sicherheitsRaum = new Raum("in dem Sicherheitsraum");
+        ersteHilfe = new Raum("in dem Erste-Hilfe-Raum");
+        elektronik = new Raum("in dem Raum für die Elektronik");
+        
         // // die Ausgänge initialisieren, dies setzt die Bezeichnungen,
         // // die der Spieler zum Weitergehen eingeben muss.
         // // man kann also denselben Ausgang unterschiedlich bezeichnen
