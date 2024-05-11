@@ -36,47 +36,46 @@ class Spiel
      */
     private void raeumeAnlegen()
     {
-        Raum mainRoom, admin, storage, lowerEngine, electrical, medbay, 
-        upperEngine, security, reaktor;
+        Raum hauptRaum;
 
         // die Räume erzeugen
-        draussen = new Raum("vor dem Haupteingang der Universität");
-        hoersaal = new Raum("in einem Vorlesungssaal");
-        cafeteria = new Raum("in der Cafeteria der Uni");
-        labor = new Raum("in einem Rechnerraum");
-        buero = new Raum("im Verwaltungsbüro der Informatik");
+        hauptRaum = new Raum("vor dem Haupteingang der Universität");
+        // hoersaal = new Raum("in einem Vorlesungssaal");
+        // cafeteria = new Raum("in der Cafeteria der Uni");
+        // labor = new Raum("in einem Rechnerraum");
+        // buero = new Raum("im Verwaltungsbüro der Informatik");
 
-        // die Ausgänge initialisieren, dies setzt die Bezeichnungen,
-        // die der Spieler zum Weitergehen eingeben muss.
-        // man kann also denselben Ausgang unterschiedlich bezeichnen
-        draussen.setzeAusgang("east", hoersaal);
-        draussen.setzeAusgang("south", labor);
-        draussen.setzeAusgang("west", cafeteria);
+        // // die Ausgänge initialisieren, dies setzt die Bezeichnungen,
+        // // die der Spieler zum Weitergehen eingeben muss.
+        // // man kann also denselben Ausgang unterschiedlich bezeichnen
+        // draussen.setzeAusgang("east", hoersaal);
+        // draussen.setzeAusgang("south", labor);
+        // draussen.setzeAusgang("west", cafeteria);
 
-        hoersaal.setzeAusgang("west", draussen);
+        // hoersaal.setzeAusgang("west", draussen);
 
-        cafeteria.setzeAusgang("east", draussen);
+        // cafeteria.setzeAusgang("east", draussen);
 
-        labor.setzeAusgang("north", draussen);
-        labor.setzeAusgang("east", buero);
+        // labor.setzeAusgang("north", draussen);
+        // labor.setzeAusgang("east", buero);
 
-        buero.setzeAusgang("west", labor);
+        // buero.setzeAusgang("west", labor);
 
-        draussen.setzeAusgang("Osten", hoersaal);
-        draussen.setzeAusgang("Osten", hoersaal);
-        draussen.setzeAusgang("Süden", labor);
-        draussen.setzeAusgang("Westen", cafeteria);
+        // draussen.setzeAusgang("Osten", hoersaal);
+        // draussen.setzeAusgang("Osten", hoersaal);
+        // draussen.setzeAusgang("Süden", labor);
+        // draussen.setzeAusgang("Westen", cafeteria);
 
-        hoersaal.setzeAusgang("Westen", draussen);
+        // hoersaal.setzeAusgang("Westen", draussen);
 
-        cafeteria.setzeAusgang("Osten", draussen);
+        // cafeteria.setzeAusgang("Osten", draussen);
 
-        labor.setzeAusgang("Norden", draussen);
-        labor.setzeAusgang("Osten", buero);
+        // labor.setzeAusgang("Norden", draussen);
+        // labor.setzeAusgang("Osten", buero);
 
-        buero.setzeAusgang("Westen", labor);
+        // buero.setzeAusgang("Westen", labor);
 
-        aktuellerRaum = draussen;  // das Spiel startet draussen
+        // aktuellerRaum = draussen;  // das Spiel startet draussen
     }
 
     /**
