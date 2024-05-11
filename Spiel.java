@@ -70,6 +70,7 @@ class Spiel
         
         buero.setzeAusgang("oben", ersteHilfe);
         buero.setzeAusgang("links", hauptRaum);
+        buero.fuegeGegenstandHinzu("Datenblatt", new Hinweis("da"));
         
         ersteHilfe.setzeAusgang("oben", sicherheitsRaum);
         ersteHilfe.setzeAusgang("unten", buero);
@@ -142,6 +143,10 @@ class Spiel
             wechsleRaum(befehl);
             break;
 
+            case USE:
+            benutzen(befehl);
+            break;
+            
             case QUIT:
             moechteBeenden = beenden(befehl);
             break;
@@ -193,6 +198,18 @@ class Spiel
         }
     }
 
+    private void benutzen(Befehl befehl)
+    {
+        Gegenstand gegenstand = aktuellerRaum.gibGegenstand(befehl.gibZweitesWort());
+        
+        if(null == gegenstand) {
+            System.out.println("Was möchten Sie benutzen");
+            return;
+        }
+        
+        System.out.println(gegenstand.benutzen());
+    }
+    
     /**
      * "quit" wurde eingegeben. Überprüfe den Rest des Befehls,
      * ob das Spiel wirklich beendet werden soll.

@@ -1,6 +1,7 @@
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.Iterator;
+import java.util.HashMap;
 
 /**
  * Diese Klasse modelliert Räume in der Welt von Zuul.
@@ -18,6 +19,7 @@ class Raum
 {
     private String beschreibung;
     private TreeMap<String, Raum> ausgaenge;        // die Ausgänge dieses Raums
+    private HashMap<String, Gegenstand> gegenstaende;
 
     /**
      * Erzeuge einen Raum mit einer Beschreibung. Ein Raum
@@ -29,6 +31,7 @@ class Raum
     {
         this.beschreibung = beschreibung;
         ausgaenge = new TreeMap<String, Raum>();
+        gegenstaende = new HashMap<String, Gegenstand>();
     }
 
     /**
@@ -39,6 +42,10 @@ class Raum
     public void setzeAusgang(String richtung, Raum nachbar) 
     {
         ausgaenge.put(richtung, nachbar);
+    }
+
+    public void fuegeGegenstandHinzu(String name, Gegenstand gegenstand){
+        gegenstaende.put(name, gegenstand);
     }
 
     /**
@@ -58,7 +65,15 @@ class Raum
      */
     public String gibLangeBeschreibung()
     {
-        return "Sie sind " + beschreibung + ".\n" + gibAusgaengeAlsString();
+        String ergebnis = "Sie sind " + beschreibung + ".\n" + gibAusgaengeAlsString() + "\n";
+        Set<String> keys = gegenstaende.keySet();
+        if (0 != keys.size()){
+            ergebnis += "Es befinden sich folgende Objekte im Raum:\n";
+            for (String gegenstand : keys){
+                ergebnis += gegenstand + " ";
+            }
+        }
+        return ergebnis;
     }
 
     /**
@@ -71,8 +86,9 @@ class Raum
     {
         String ergebnis = "Ausgänge:";
         Set<String> keys = ausgaenge.keySet();
-        for(String ausgang : keys)
+        for(String ausgang : keys){
             ergebnis += " " + ausgang;
+        }
         return ergebnis;
     }
 
@@ -86,6 +102,11 @@ class Raum
     public Raum gibAusgang(String richtung) 
     {
         return ausgaenge.get(richtung);
+    }
+    
+    public Gegenstand gibGegenstand(String gegenstand)
+    {
+        return gegenstaende.get(gegenstand);
     }
 }
 
