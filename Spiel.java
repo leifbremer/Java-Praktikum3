@@ -16,7 +16,7 @@
  * @author  Michael Kölling und David J. Barnes
  * @version 31.07.2011
  * 
- * Hallo Test Test Test Test
+ * Hallo Test Test Test Test Test
  * 
  */
 
