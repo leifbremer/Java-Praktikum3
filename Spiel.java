@@ -56,30 +56,30 @@ class Spiel
         // // die Ausgänge initialisieren, dies setzt die Bezeichnungen,
         // // die der Spieler zum Weitergehen eingeben muss.
         // // man kann also denselben Ausgang unterschiedlich bezeichnen
-        hauptRaum.setzeAusgang("rechts", buero);
         hauptRaum.setzeAusgang("oben", obererMotor);
         hauptRaum.setzeAusgang("unten", lager);
+        hauptRaum.setzeAusgang("rechts", buero);
 
-        lager.setzeAusgang("links", elektronik);
-        lager.setzeAusgang("unten", untererMotor);
         lager.setzeAusgang("oben", hauptRaum);
+        lager.setzeAusgang("unten", untererMotor);
+        lager.setzeAusgang("links", elektronik);
 
         elektronik.setzeAusgang("rechts", lager);
 
         untererMotor.setzeAusgang("oben", lager);
         
-        buero.setzeAusgang("links", hauptRaum);
         buero.setzeAusgang("oben", ersteHilfe);
+        buero.setzeAusgang("links", hauptRaum);
         
-        ersteHilfe.setzeAusgang("unten", buero);
         ersteHilfe.setzeAusgang("oben", sicherheitsRaum);
+        ersteHilfe.setzeAusgang("unten", buero);
         
         sicherheitsRaum.setzeAusgang("unten", ersteHilfe);
         sicherheitsRaum.setzeAusgang("links", obererMotor);
         
+        obererMotor.setzeAusgang("unten", hauptRaum);
         obererMotor.setzeAusgang("rechts", sicherheitsRaum);
         obererMotor.setzeAusgang("links", reaktor);
-        obererMotor.setzeAusgang("unten", hauptRaum);
         
         reaktor.setzeAusgang("rechts", obererMotor);
     
