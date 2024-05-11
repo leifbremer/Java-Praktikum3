@@ -36,7 +36,8 @@ class Spiel
      */
     private void raeumeAnlegen()
     {
-        Raum draussen, hoersaal, cafeteria, labor, buero;
+        Raum mainRoom, admin, storage, lowerEngine, electrical, medbay, 
+        upperEngine, security, reaktor;
 
         // die Räume erzeugen
         draussen = new Raum("vor dem Haupteingang der Universität");
