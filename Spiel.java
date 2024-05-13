@@ -68,10 +68,11 @@ class Spiel
         elektronik.fuegeGegenstandHinzu("Spannungseinsteller", new Eingabe("50", "links", reaktor, obererMotor));
 
         untererMotor.setzeAusgang("oben", lager);
+        untererMotor.fuegeGegenstandHinzu("Widerstand", new Hinweis("Widerstand: 100 Ohm"));
         
         buero.setzeAusgang("oben", ersteHilfe);
         buero.setzeAusgang("links", hauptRaum);
-        buero.fuegeGegenstandHinzu("Datenblatt", new Hinweis("da"));
+        buero.fuegeGegenstandHinzu("Datenblatt", new Hinweis("Datenblatt:"));
         
         ersteHilfe.setzeAusgang("oben", sicherheitsRaum);
         ersteHilfe.setzeAusgang("unten", buero);
