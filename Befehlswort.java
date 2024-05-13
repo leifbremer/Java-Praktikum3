@@ -9,5 +9,5 @@ public enum Befehlswort
 {
     // Ein Wert für jedes Befehlswort, plus eines für nicht
     // erkannte Befehle
-    GO, QUIT, HELP, UNKNOWN, USE, TAKE;
+    GO, QUIT, HELP, UNKNOWN, USE, TAKE, WRITE;
 }

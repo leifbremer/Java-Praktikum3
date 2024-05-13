@@ -16,5 +16,6 @@ public class Hinweis extends Gegenstand
     public String benutzen(){
         return hinweis;
     }
-
+    
+    
 }

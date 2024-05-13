@@ -35,6 +35,7 @@ class Befehlswoerter
         gueltigeBefehle.put("quit", Befehlswort.QUIT);
         gueltigeBefehle.put("use", Befehlswort.USE);
         gueltigeBefehle.put("take", Befehlswort.TAKE);
+        gueltigeBefehle.put("write", Befehlswort.WRITE);
     }
 
     /**

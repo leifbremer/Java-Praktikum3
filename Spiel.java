@@ -65,6 +65,7 @@ class Spiel
         lager.setzeAusgang("links", elektronik);
 
         elektronik.setzeAusgang("rechts", lager);
+        elektronik.fuegeGegenstandHinzu("Spannungseinsteller", new Eingabe("50", "links", reaktor, obererMotor));
 
         untererMotor.setzeAusgang("oben", lager);
         
@@ -80,7 +81,6 @@ class Spiel
         
         obererMotor.setzeAusgang("unten", hauptRaum);
         obererMotor.setzeAusgang("rechts", sicherheitsRaum);
-        obererMotor.setzeAusgang("links", reaktor);
         
         reaktor.setzeAusgang("rechts", obererMotor);
     
@@ -147,6 +147,10 @@ class Spiel
             benutzen(befehl);
             break;
             
+            case WRITE:
+            lesen(befehl);
+            break;
+            
             case QUIT:
             moechteBeenden = beenden(befehl);
             break;
@@ -203,11 +207,33 @@ class Spiel
         Gegenstand gegenstand = aktuellerRaum.gibGegenstand(befehl.gibZweitesWort());
         
         if(null == gegenstand) {
-            System.out.println("Was möchten Sie benutzen");
+            System.out.println("Was möchten Sie benutzen?");
             return;
         }
         
         System.out.println(gegenstand.benutzen());
+    }
+    
+    private void lesen(Befehl befehl)
+    {
+        boolean erfolg;
+        Gegenstand gegenstand = aktuellerRaum.gibGegenstand(befehl.gibZweitesWort());
+        
+        if(null == gegenstand) {
+            System.out.println("Wo möchten Sie etwas eingeben?");
+            return;
+        }
+        
+        erfolg = gegenstand.eingeben();
+        
+        if(erfolg){
+            Raum raum = gegenstand.getWo();
+            raum.setzeAusgang(gegenstand.getKey(),gegenstand.getValue());
+        }
+        
+        else{
+            System.out.println("Das hat leider nicht funktioniert");
+        }
     }
     
     /**
