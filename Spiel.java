@@ -1,3 +1,5 @@
+import java.util.HashMap;
+
 /**
  *  Dies ist die Hauptklasse der Anwendung "Die Welt von Zuul".
  *  "Die Welt von Zuul" ist ein sehr einfaches, textbasiertes
@@ -24,6 +26,7 @@ class Spiel
 {
     private Parser parser;
     private Raum aktuellerRaum;
+    private HashMap<String,Gegenstand> inventar;
 
     /**
      * Erzeuge ein Spiel und initialisiere die interne Raumkarte.
@@ -149,7 +152,11 @@ class Spiel
             break;
             
             case WRITE:
-            lesen(befehl);
+            write(befehl);
+            break;
+            
+            case TAKE:
+            take(befehl);
             break;
             
             case QUIT:
@@ -215,7 +222,7 @@ class Spiel
         System.out.println(gegenstand.benutzen());
     }
     
-    private void lesen(Befehl befehl)
+    private void write(Befehl befehl)
     {
         boolean erfolg;
         Gegenstand gegenstand = aktuellerRaum.gibGegenstand(befehl.gibZweitesWort());
@@ -235,6 +242,23 @@ class Spiel
         else{
             System.out.println("Das hat leider nicht funktioniert");
         }
+    }
+    
+    private void take(Befehl befehl)
+    {
+        Gegenstand gegenstand = aktuellerRaum.gibGegenstand(befehl.gibZweitesWort());
+        
+        if(null == gegenstand) {
+            System.out.println("Dieser Gegenstand ist hier nicht.");
+            return;
+        }
+        
+        if(gegenstand.aufheben()){
+            inventar.put(befehl.gibZweitesWort(),gegenstand);
+            return;
+        }
+        
+        System.out.println("Das koennen Sie nicht aufheben");
     }
     
     /**
