@@ -44,6 +44,7 @@ class Spiel
     {
         Raum hauptRaum, buero, lager,untererMotor, obererMotor, reaktor, 
         sicherheitsRaum, ersteHilfe, elektronik;
+        inventar = new HashMap<String, Gegenstand>();
 
         // die Räume erzeugen
         hauptRaum = new Raum("in dem Hauptraum");
