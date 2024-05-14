@@ -66,6 +66,7 @@ class Spiel
         lager.setzeAusgang("oben", hauptRaum);
         lager.setzeAusgang("unten", untererMotor);
         lager.setzeAusgang("links", elektronik);
+        lager.fuegeGegenstandHinzu("Werkzeugkasten", new Werkzeug());
 
         elektronik.setzeAusgang("rechts", lager);
         elektronik.fuegeGegenstandHinzu("Spannungseinsteller", new Eingabe("50", "links", reaktor, obererMotor));
