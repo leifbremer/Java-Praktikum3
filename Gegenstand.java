@@ -26,4 +26,8 @@ public class Gegenstand
     public Raum getWo(){
         return null;
     }
+    
+    public boolean aufheben(){
+        return false;
+    }
 }

@@ -6,8 +6,12 @@
  * @version (eine Versionsnummer oder ein Datum)
  */
 public class Werkzeug extends Gegenstand
-{
+{    
     public String benutzen(){
         return "Sie können diesen Gegenstand hier nicht benutzen";
+    }
+    
+    public boolean aufheben(){
+        return true;
     }
 }
