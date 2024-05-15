@@ -5,7 +5,7 @@
  * @author (Ihr Name) 
  * @version (eine Versionsnummer oder ein Datum)
  */
-public class Gegenstand
+public abstract class Gegenstand
 {
     public String benutzen(){
         return "NICHT IMPLEMENTIERT";
