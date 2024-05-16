@@ -17,8 +17,8 @@ import java.util.HashMap;
 
 class Raum 
 {
-    private String beschreibung;
-    private TreeMap<String, Raum> ausgaenge;        // die Ausgänge dieses Raums
+    protected String beschreibung;
+    protected TreeMap<String, Raum> ausgaenge;        // die Ausgänge dieses Raums
     private HashMap<String, Gegenstand> gegenstaende;
 
     /**
@@ -43,7 +43,17 @@ class Raum
     {
         ausgaenge.put(richtung, nachbar);
     }
+    
+    public void removeItem(String name)
+    {
+        gegenstaende.remove(name);
+    }
 
+    public void setzeAusgangZu(String richtung, Raum nachbar)
+    {
+        System.out.println("Das verschließen der Tür hat nicht funktioniert.");
+        ausgaenge.put(richtung, nachbar);
+    }
     public void fuegeGegenstandHinzu(String name, Gegenstand gegenstand){
         gegenstaende.put(name, gegenstand);
     }
@@ -76,13 +86,16 @@ class Raum
         return ergebnis;
     }
 
+    public void oeffneAusgang(){
+        System.out.println("NICHT IMPLEMENTIERT");
+    }
     /**
      * Liefere eine Zeichenkette, die die Ausgänge dieses Raums
      * beschreibt, beispielsweise
      * "Ausgänge: north west".
      * @return eine Beschreibung der Ausgänge dieses Raumes.
      */
-    private String gibAusgaengeAlsString()
+    protected String gibAusgaengeAlsString()
     {
         String ergebnis = "Ausgänge:";
         Set<String> keys = ausgaenge.keySet();

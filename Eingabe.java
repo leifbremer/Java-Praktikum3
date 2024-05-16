@@ -10,15 +10,11 @@ import java.util.HashMap;
 public class Eingabe extends Gegenstand
 {
     private String schluessel;
-    private String tuer;
     private Raum raumVon;
-    private Raum raumZu;
     
-    public Eingabe(String schluessel, String tuer, Raum raumZu, Raum raumVon){
+    public Eingabe(String schluessel, Raum raumVon){
         this.schluessel = schluessel;
-        this.tuer = tuer;
         this.raumVon = raumVon;
-        this.raumZu = raumZu;
     }
     
     public String benutzen(){
@@ -30,15 +26,7 @@ public class Eingabe extends Gegenstand
         System.out.print("> ");
         return vergleicheSchluessel(leser.nextLine());
     }
-    
-    public String getKey(){
-        return tuer;
-    }
-    
-    public Raum getValue(){
-        return raumZu;
-    }
-    
+
     public Raum getWo(){
         return raumVon;
     }

@@ -33,64 +33,9 @@ class Spiel
      */
     public Spiel() 
     {
-        raeumeAnlegen();
+        aktuellerRaum = new Spielumgebung().raeumeAnlegen();
         parser = new Parser();
-    }
-
-    /**
-     * Erzeuge alle Räume und verbinde ihre Ausgänge miteinander.
-     */
-    private void raeumeAnlegen()
-    {
-        Raum hauptRaum, buero, lager,untererMotor, obererMotor, reaktor, 
-        sicherheitsRaum, ersteHilfe, elektronik;
         inventar = new HashMap<String, Gegenstand>();
-
-        // die Räume erzeugen
-        hauptRaum = new Raum("in dem Hauptraum");
-        buero = new Raum("in dem Büro");
-        lager = new Raum("in dem Lager");
-        untererMotor = new Raum("in dem unteren Motorraum");
-        obererMotor = new Raum("in dem oberen Motorraum");
-        reaktor = new Raum("in dem Reaktor");
-        sicherheitsRaum = new Raum("in dem Sicherheitsraum");
-        ersteHilfe = new Raum("in dem Erste-Hilfe-Raum");
-        elektronik = new Raum("in dem Raum für die Elektronik");
-        
-        // // die Ausgänge initialisieren, dies setzt die Bezeichnungen,
-        // // die der Spieler zum Weitergehen eingeben muss.
-        // // man kann also denselben Ausgang unterschiedlich bezeichnen
-        hauptRaum.setzeAusgang("oben", obererMotor);
-        hauptRaum.setzeAusgang("unten", lager);
-        hauptRaum.setzeAusgang("rechts", buero);
-
-        lager.setzeAusgang("oben", hauptRaum);
-        lager.setzeAusgang("unten", untererMotor);
-        lager.setzeAusgang("links", elektronik);
-        lager.fuegeGegenstandHinzu("Werkzeugkasten", new Werkzeug());
-
-        elektronik.setzeAusgang("rechts", lager);
-        elektronik.fuegeGegenstandHinzu("Spannungseinsteller", new Eingabe("50", "links", reaktor, obererMotor));
-
-        untererMotor.setzeAusgang("oben", lager);
-        untererMotor.fuegeGegenstandHinzu("Widerstand", new Hinweis("Widerstand: 100 Ohm"));
-        
-        buero.setzeAusgang("oben", ersteHilfe);
-        buero.setzeAusgang("links", hauptRaum);
-        buero.fuegeGegenstandHinzu("Datenblatt", new Hinweis("Datenblatt:"));
-        
-        ersteHilfe.setzeAusgang("oben", sicherheitsRaum);
-        ersteHilfe.setzeAusgang("unten", buero);
-        
-        sicherheitsRaum.setzeAusgang("unten", ersteHilfe);
-        sicherheitsRaum.setzeAusgang("links", obererMotor);
-        
-        obererMotor.setzeAusgang("unten", hauptRaum);
-        obererMotor.setzeAusgang("rechts", sicherheitsRaum);
-        
-        reaktor.setzeAusgang("rechts", obererMotor);
-    
-        aktuellerRaum = hauptRaum;  // das Spiel startet draussen
     }
 
     /**
@@ -237,8 +182,8 @@ class Spiel
         erfolg = gegenstand.eingeben();
         
         if(erfolg){
-            Raum raum = gegenstand.getWo();
-            raum.setzeAusgang(gegenstand.getKey(),gegenstand.getValue());
+            Raum raum = (TuerRaum) gegenstand.getWo();
+            raum.oeffneAusgang();
         }
         
         else{
@@ -257,6 +202,7 @@ class Spiel
         
         if(gegenstand.aufheben()){
             inventar.put(befehl.gibZweitesWort(),gegenstand);
+            aktuellerRaum.removeItem(befehl.gibZweitesWort());
             return;
         }
         
