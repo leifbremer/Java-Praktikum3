@@ -8,25 +8,25 @@
 public abstract class Gegenstand
 {
     public String benutzen(){
-        return "NICHT IMPLEMENTIERT";
+        return "Sie können das nicht benutzen";
     }
-    
+
     public boolean eingeben(){
         return false;
     }
-    
-    public String getKey(){
-        return null;
-    }
-    
-    public Raum getValue(){
-        return null;
-    }
-    
+
     public Raum getWo(){
         return null;
     }
-    
+
+    public void reparieren(){
+
+    }
+
+    public Gegenstand gibWerkzeug(){
+        return null;
+    }
+
     public boolean aufheben(){
         return false;
     }

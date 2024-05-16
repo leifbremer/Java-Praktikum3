@@ -29,6 +29,7 @@ public class Spielumgebung
         sicherheitsRaum = new Raum("in dem Sicherheitsraum");
         ersteHilfe = new Raum("in dem Erste-Hilfe-Raum");
         elektronik = new Raum("in dem Raum für die Elektronik");
+        Gegenstand werkzeugkasten = new Werkzeug();
         
         // // die Ausgänge initialisieren, dies setzt die Bezeichnungen,
         // // die der Spieler zum Weitergehen eingeben muss.
@@ -40,7 +41,7 @@ public class Spielumgebung
         lager.setzeAusgang("oben", hauptRaum);
         lager.setzeAusgang("unten", untererMotor);
         lager.setzeAusgang("links", elektronik);
-        lager.fuegeGegenstandHinzu("Werkzeugkasten", new Werkzeug());
+        lager.fuegeGegenstandHinzu("Werkzeugkasten", werkzeugkasten);
 
         elektronik.setzeAusgang("rechts", lager);
         elektronik.fuegeGegenstandHinzu("Spannungseinsteller", new Eingabe("50", obererMotor));
@@ -63,6 +64,7 @@ public class Spielumgebung
         obererMotor.setzeAusgangZu("links", reaktor);
         
         reaktor.setzeAusgang("rechts", obererMotor);
+        reaktor.fuegeGegenstandHinzu("Reaktor", new Kaputt(werkzeugkasten)); 
     
         return hauptRaum;  // das Spiel startet draussen
     }

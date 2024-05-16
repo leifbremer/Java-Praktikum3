@@ -25,6 +25,7 @@ public class TuerRaum extends Raum
     public void oeffneAusgang()
     {
         ausgaenge.put(richtung, nachbar);
+        offen = true;
     }
 
     @Override

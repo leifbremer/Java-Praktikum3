@@ -106,6 +106,10 @@ class Spiel
             take(befehl);
             break;
             
+            case REPAIR:
+            moechteBeenden = reparieren(befehl);
+            break;
+            
             case QUIT:
             moechteBeenden = beenden(befehl);
             break;
@@ -208,7 +212,32 @@ class Spiel
         
         System.out.println("Das koennen Sie nicht aufheben");
     }
-    
+    private boolean reparieren(Befehl befehl)
+    {
+        Gegenstand zuReparieren = aktuellerRaum.gibGegenstand(befehl.gibZweitesWort());
+        Gegenstand werkzeug;
+        if(zuReparieren == null){
+            System.out.println("Das ist hier nicht.");
+            return false;
+        }
+        
+        werkzeug = zuReparieren.gibWerkzeug();
+        if(werkzeug == null){
+            System.out.println("Das können Sie nicht reparieren");
+            return false;
+        }
+        
+        for(String s : inventar.keySet()){
+            if(inventar.get(s).equals(werkzeug)){
+                zuReparieren.reparieren();
+                System.out.println("Sie haben gewonnen.");
+                return true;
+            }
+        }
+        
+        System.out.println("Sie haben nicht das nötige Werkzeug.");
+        return false;
+    }
     /**
      * "quit" wurde eingegeben. Überprüfe den Rest des Befehls,
      * ob das Spiel wirklich beendet werden soll.
