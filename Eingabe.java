@@ -11,10 +11,12 @@ public class Eingabe extends Gegenstand
 {
     private String schluessel;
     private Raum raumVon;
+    private String abfrage;
     
-    public Eingabe(String schluessel, Raum raumVon){
+    public Eingabe(String schluessel, Raum raumVon, String abfrage){
         this.schluessel = schluessel;
         this.raumVon = raumVon;
+        this.abfrage = abfrage; 
     }
     
     public String benutzen(){
@@ -23,6 +25,7 @@ public class Eingabe extends Gegenstand
     
     public boolean eingeben(){
         Scanner leser = new Scanner(System.in);
+        System.out.println(abfrage);
         System.out.print("> ");
         return vergleicheSchluessel(leser.nextLine());
     }

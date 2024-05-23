@@ -1,22 +1,6 @@
 import java.util.HashMap;
 
 /**
- *  Dies ist die Hauptklasse der Anwendung "Die Welt von Zuul".
- *  "Die Welt von Zuul" ist ein sehr einfaches, textbasiertes
- *  Adventure-Game. Ein Spieler kann sich in einer Umgebung bewegen,
- *  mehr nicht. Das Spiel sollte auf jeden Fall ausgebaut werden,
- *  damit es interessanter wird!
- * 
- *  Zum Spielen muss eine Instanz dieser Klasse erzeugt werden und
- *  an ihr die Methode "spielen" aufgerufen werden.
- * 
- *  Diese Instanz dieser Klasse erzeugt und initialisiert alle
- *  anderen Objekte der Anwendung: Sie legt alle Räume und einen
- *  Parser an und startet das Spiel. Sie wertet auch die Befehle
- *  aus, die der Parser liefert und sorgt für ihre Ausführung.
- * 
- * @author  Michael Kölling und David J. Barnes
- * @version 31.07.2011
  * 
  * Hallo Test 23
  * 
@@ -52,11 +36,12 @@ class Spieler
 
         boolean beendet = false;
         while (! beendet && zuege != 0) {
+            zuegeAusgeben();
             zuege--;
             Befehl befehl = parser.liefereBefehl();
             beendet = verarbeiteBefehl(befehl);
         }
-        if (zuege == 0){
+        if (! beendet){
             System.out.println("BUUMMM. Der Reaktor ist in die Luft geflogen. Sie haben Verloren. Versuchen Sie es doch nochmal.");
         }
         System.out.println("Danke für dieses Spiel. Auf Wiedersehen.");
@@ -201,10 +186,11 @@ class Spieler
         if(erfolg){
             Raum raum = (TuerRaum) gegenstand.getWo();
             raum.oeffneAusgang();
+            System.out.println("Die Eingabe ist korrekt.");
         }
         
         else{
-            System.out.println("Das hat leider nicht funktioniert");
+            System.out.println("Das hat leider nicht funktioniert.");
         }
     }
     
@@ -259,6 +245,13 @@ class Spieler
         for(String gegenstand : inventar.keySet()){
             System.out.println(gegenstand + "  ");
         }
+    }
+    
+    private void zuegeAusgeben()
+    {
+        System.out.println("Züge: " + zuege);
+        System.out.println();
+        System.out.println();
     }
     
     /**

@@ -44,8 +44,7 @@ public class Spielumgebung
         lager.fuegeGegenstandHinzu("Werkzeugkasten", werkzeugkasten);
 
         elektronik.setzeAusgang("rechts", lager);
-        elektronik.fuegeGegenstandHinzu("Spannungseingabe", new Eingabe("187", obererMotor));
-        elektronik.fuegeGegenstandHinzu("Zettel", new Hinweis("Hinweis für die Spannungseingabe: Die Eingabe erfolgt in Volt. Geben Sie nur die passende Zahl ein."));
+        elektronik.fuegeGegenstandHinzu("Spannungseingabe", new Eingabe("187", obererMotor,"Geben Sie die passende Spannung als Zahl ein. (Ohne Volt)"));
         
         untererMotor.setzeAusgang("oben", lager);
         untererMotor.fuegeGegenstandHinzu("Widerstand", new Hinweis("Widerstand: 170 Ohm"));
