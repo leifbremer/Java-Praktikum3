@@ -103,9 +103,13 @@ class Spieler
             wechsleRaum(befehl);
             break;
 
-            case USE:
+            case READ:
             benutzen(befehl);
             break;
+            
+            case INV:
+            inventar();    
+            break;    
             
             case WRITE:
             write(befehl);
@@ -247,6 +251,16 @@ class Spieler
         System.out.println("Sie haben nicht das nötige Werkzeug.");
         return false;
     }
+    
+    private void inventar()
+    {
+        System.out.println("Sie haben folgende Gegenstände: ");
+        System.out.println();
+        for(String gegenstand : inventar.keySet()){
+            System.out.println(gegenstand + "  ");
+        }
+    }
+    
     /**
      * "quit" wurde eingegeben. Überprüfe den Rest des Befehls,
      * ob das Spiel wirklich beendet werden soll.

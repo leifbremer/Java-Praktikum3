@@ -33,7 +33,8 @@ class Befehlswoerter
         gueltigeBefehle.put("help", Befehlswort.HELP);        
         gueltigeBefehle.put("ciao", Befehlswort.QUIT);
         gueltigeBefehle.put("quit", Befehlswort.QUIT);
-        gueltigeBefehle.put("use", Befehlswort.USE);
+        gueltigeBefehle.put("read", Befehlswort.READ);
+        gueltigeBefehle.put("inv", Befehlswort.INV);
         gueltigeBefehle.put("take", Befehlswort.TAKE);
         gueltigeBefehle.put("write", Befehlswort.WRITE);
         gueltigeBefehle.put("repair", Befehlswort.REPAIR);

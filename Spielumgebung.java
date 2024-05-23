@@ -44,14 +44,15 @@ public class Spielumgebung
         lager.fuegeGegenstandHinzu("Werkzeugkasten", werkzeugkasten);
 
         elektronik.setzeAusgang("rechts", lager);
-        elektronik.fuegeGegenstandHinzu("Spannungseinsteller", new Eingabe("50", obererMotor));
-
+        elektronik.fuegeGegenstandHinzu("Spannungseingabe", new Eingabe("187", obererMotor));
+        elektronik.fuegeGegenstandHinzu("Zettel", new Hinweis("Hinweis für die Spannungseingabe: Die Eingabe erfolgt in Volt. Geben Sie nur die passende Zahl ein."));
+        
         untererMotor.setzeAusgang("oben", lager);
-        untererMotor.fuegeGegenstandHinzu("Widerstand", new Hinweis("Widerstand: 100 Ohm"));
+        untererMotor.fuegeGegenstandHinzu("Widerstand", new Hinweis("Widerstand: 170 Ohm"));
         
         buero.setzeAusgang("oben", ersteHilfe);
         buero.setzeAusgang("links", hauptRaum);
-        buero.fuegeGegenstandHinzu("Datenblatt", new Hinweis("Datenblatt:"));
+        buero.fuegeGegenstandHinzu("Datenblatt", new Hinweis("Benötigter Strom: 1100 Milliampere"));
         
         ersteHilfe.setzeAusgang("oben", sicherheitsRaum);
         ersteHilfe.setzeAusgang("unten", buero);
@@ -62,6 +63,7 @@ public class Spielumgebung
         obererMotor.setzeAusgang("unten", hauptRaum);
         obererMotor.setzeAusgang("rechts", sicherheitsRaum);
         obererMotor.setzeAusgangZu("links", reaktor);
+        obererMotor.fuegeGegenstandHinzu("Zettel", new Hinweis("Die Tür zum Reaktor ist kaputt. Die Sicherung ist durchgebrannt. Begeben Sie sich in Elektronik."));
         
         reaktor.setzeAusgang("rechts", obererMotor);
         reaktor.fuegeGegenstandHinzu("Reaktor", new Kaputt(werkzeugkasten)); 
