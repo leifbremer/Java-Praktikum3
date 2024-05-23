@@ -27,7 +27,7 @@ class Spieler
     private Parser parser;
     private Raum aktuellerRaum;
     private HashMap<String,Gegenstand> inventar;
-
+    private int zuege;
     /**
      * Erzeuge ein Spiel und initialisiere die interne Raumkarte.
      */
@@ -36,6 +36,7 @@ class Spieler
         aktuellerRaum = new Spielumgebung().raeumeAnlegen();
         parser = new Parser();
         inventar = new HashMap<String, Gegenstand>();
+        zuege = 30;
     }
 
     /**
@@ -50,11 +51,16 @@ class Spieler
         // und führen sie aus, bis das Spiel beendet wird.
 
         boolean beendet = false;
-        while (! beendet) {
+        while (! beendet && zuege != 0) {
+            zuege--;
             Befehl befehl = parser.liefereBefehl();
             beendet = verarbeiteBefehl(befehl);
         }
+        if (zuege == 0){
+            System.out.println("BUUMMM. Der Reaktor ist in die Luft geflogen. Sie haben Verloren. Versuchen Sie es doch nochmal.");
+        }
         System.out.println("Danke für dieses Spiel. Auf Wiedersehen.");
+        
     }
 
     /**
@@ -63,8 +69,11 @@ class Spieler
     private void willkommenstextAusgeben()
     {
         System.out.println();
-        System.out.println("Willkommen zu Zuul!");
-        System.out.println("Zuul ist ein neues, unglaublich langweiliges Spiel.");
+        System.out.println("Willkommen!");
+        System.out.println("Sie befinden sich in einem Reaktor.");
+        System.out.println("KRRRCH KRRRCH! Oh Nein, hören Sie das? Der Reaktor droht in die Luft zu gehen!");
+        System.out.println("Sie müssen den Reaktor reparieren bevor alles in die Luft fliegt!");
+        System.out.println("Aber sein Sie vorsichtig! Sie haben nur 30 Züge. Wählen Sie also mit Bedacht.");
         System.out.println("Tippen sie 'help', wenn Sie Hilfe brauchen.");
         System.out.println();
         System.out.println(aktuellerRaum.gibLangeBeschreibung());
@@ -83,7 +92,7 @@ class Spieler
 
         switch(befehlswort) { 
             case UNKNOWN:
-            System.out.println("Ich weiss nicht, was Sie meinen...");
+            System.out.println("Ich weiss nicht, was Sie meinen. Wenn Sie Probleme haben nutzen Sie 'help'.");
             break;
 
             case HELP:
@@ -127,9 +136,9 @@ class Spieler
      */
     private void hilfstextAusgeben() 
     {
-        System.out.println("Sie haben sich verlaufen. Sie sind allein.");
-        System.out.println("Sie irren auf dem Unigelände herum.");
-        System.out.println();
+        System.out.println("Sie müssen den Reaktor reparieren.");
+        System.out.println("Anzahl verbleibender Züge: " + zuege);
+        System.out.println("\t");
         System.out.println("Ihnen stehen folgende Befehle zur Verfügung:");
         parser.zeigeBefehle();
     }
@@ -153,7 +162,7 @@ class Spieler
         Raum naechsterRaum = aktuellerRaum.gibAusgang(richtung);
 
         if (naechsterRaum == null) {
-            System.out.println("Dort ist keine Tür!");
+            System.out.println("Sie können da nicht durch!");
         }
         else {
             aktuellerRaum = naechsterRaum;
@@ -210,14 +219,14 @@ class Spieler
             return;
         }
         
-        System.out.println("Das koennen Sie nicht aufheben");
+        System.out.println("Das können Sie nicht aufheben");
     }
     private boolean reparieren(Befehl befehl)
     {
         Gegenstand zuReparieren = aktuellerRaum.gibGegenstand(befehl.gibZweitesWort());
         Gegenstand werkzeug;
         if(zuReparieren == null){
-            System.out.println("Das ist hier nicht.");
+            System.out.println("Der Gegenstand befindet sich nicht in diesem Raum.");
             return false;
         }
         
@@ -246,7 +255,7 @@ class Spieler
     private boolean beenden(Befehl befehl) 
     {
         if(befehl.hatZweitesWort()) {
-            System.out.println("Was soll beendet werden?");
+            System.out.println("Was soll beendet werden??");
             return false;
         }
         else {
