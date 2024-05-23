@@ -238,6 +238,10 @@ class Spieler
         return false;
     }
     
+    /**
+     * Methode inventar
+     * Gibt eine Liste
+     */
     private void inventar()
     {
         System.out.println("Sie haben folgende Gegenstände: ");
@@ -247,6 +251,10 @@ class Spieler
         }
     }
     
+    /**
+     * Methode zuegeAusgeben
+     * Gibt die Anzahl der uebrigen Zuege aus.
+     */
     private void zuegeAusgeben()
     {
         System.out.println("Züge: " + zuege);
