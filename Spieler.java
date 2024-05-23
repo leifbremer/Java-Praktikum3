@@ -22,7 +22,7 @@ import java.util.HashMap;
  * 
  */
 
-class Spiel 
+class Spieler 
 {
     private Parser parser;
     private Raum aktuellerRaum;
@@ -31,7 +31,7 @@ class Spiel
     /**
      * Erzeuge ein Spiel und initialisiere die interne Raumkarte.
      */
-    public Spiel() 
+    public Spieler() 
     {
         aktuellerRaum = new Spielumgebung().raeumeAnlegen();
         parser = new Parser();
