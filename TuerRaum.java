@@ -66,7 +66,7 @@ public class TuerRaum extends Raum
         String ergebnis;
         ergebnis = super.gibAusgaengeAlsString();
         if(!offen){
-            ergebnis += "Verschlossene Tür:" + richtung;
+            ergebnis += "\nVerschlossener Ausgang:" + richtung;
         }
         return ergebnis;
     }
