@@ -243,7 +243,7 @@ class Spieler
         System.out.println("Sie haben folgende Gegenstände: ");
         System.out.println();
         for(String gegenstand : inventar.keySet()){
-            System.out.println(gegenstand + "  ");
+            System.out.println(gegenstand + "  |");
         }
     }
     
