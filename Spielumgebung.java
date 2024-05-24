@@ -8,6 +8,7 @@ public class Spielumgebung
 {
     /**
      * Spielumgebung Konstruktor
+     * 
      * Initialisiert ein Objekt, ohne spezielle Aktionen.
      */
     public Spielumgebung(){
@@ -15,7 +16,7 @@ public class Spielumgebung
     }
     
     /**
-     * Erzeuge alle Räume und verbinde ihre Ausgänge miteinander.
+     * Methode raumeAnlegen
      * 
      * Diese Methode erstellt die verschiedenen Räume des Spiels,
      * setzt die Ausgänge zwischen den Räumen

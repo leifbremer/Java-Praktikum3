@@ -1,24 +1,30 @@
 /**
- * Beschreiben Sie hier die Klasse TuerRaum.
+ * Klasse TuerRaum.
  * 
- * @author (Nicolas Lyer) 
- * @version (eine Versionsnummer oder ein Datum)
+ * Fügt eine verschlossene Tür zu, die erst geöggemt werden muss,
+ * bevor der Raum betreten werden kann.
+ * 
+ * @author (Nicolas Lyer, Leif Bremer) 
+ * @version (Version 1, 24.05.2024)
  */
 public class TuerRaum extends Raum
 {
-    //Variable für Richtung der geschlossenen Tuer
+    //Variable für Richtung der geschlossenen Tür
     private String richtung;
     
-    //Variable zum Speichern des Raumes hinter der Tuer
+    //Variable zum Speichern des Raumes hinter der Tür
     private Raum nachbar;
     
-    //Boolean zum überprüfen ob die Tuer bereits offen ist
+    //Boolean zum überprüfen ob die Tür bereits offen ist
     private boolean offen;
 
     /**
      * Konstruktor TuerRaum
      * 
-     * @param beschreibung für Beschreibung des Raumes
+     * Intitalisierung von TuerRaum mit einer Beschreibung.
+     * standardmäßig geschlossen.
+     * 
+     * @param beschreibung Für Beschreibung des Raumes
      * 
      */
     public TuerRaum(String beschreibung)
@@ -30,10 +36,10 @@ public class TuerRaum extends Raum
     /**
      * Methode setzeAusgangZu
      *
+     * setze Raum und verschlossene Tuer.
+     *
      * @param richtung Richtung fuer geschlossenen Ausgang
      * @param nachbar Raum hinter geschlossener Tuer
-     * 
-     * setze Raum und verschlossene Tuer
      */
     public void setzeAusgangZu(String richtung, Raum nachbar)
     {
@@ -44,8 +50,8 @@ public class TuerRaum extends Raum
     /**
      * Methode oeffneAusgang
      *
-     * oeffne die geschlossene Tuer indem die Parameter in die normale Map fuer
-     * Raume eingetragen werden
+     * Öffne die geschlossene Tür indem die Parameter in die normale Map für
+     * Räume eingetragen werden.
      */
     public void oeffneAusgang()
     {
@@ -56,8 +62,9 @@ public class TuerRaum extends Raum
     /**
      * Methode gibAusgaengeAlsString
      *
-     * ueberschreibe die Methode der Superklasse, um auch die verschlossenen 
-     * Tueren auszugeben
+     * Überschreibe die Methode der Superklasse, um auch die verschlossenen 
+     * Türen auszugeben.
+     * 
      * @return Ausgabe String
      */
     @Override

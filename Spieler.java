@@ -1,10 +1,15 @@
 import java.util.HashMap;
 
 /**
+ * Klasse Spieler
+ * 
  * Die Klasse Spieler repräsentiert den User des Spiels.
  * Die wichtigen Eigenschaften des Users werden in der Klasse verarbeitet.
  * Zu den Eigenschaften zählen der aktuelle Raum,
  * das Inventar und die Anzahl der verbleibenden Züge des Users.
+ * 
+ * @author (Nicolas Lyer, Leif Bremer) 
+ * @version (Version 1, 24.05.2024)
  */
 
 class Spieler 
@@ -14,7 +19,8 @@ class Spieler
     private HashMap<String,Gegenstand> inventar;
     private int zuege;
     /**
-     * Konstruktor der Klasse Spieler.
+     * Konstruktor Spieler.
+     * 
      * Inititalisierung des aktuellen Raums, des Parsers, des Inventars
      * und der Anzahl der Züge des Users.
      */
@@ -28,6 +34,7 @@ class Spieler
 
     /**
      * Methode spielen
+     * 
      * Die Hauptmethode zum Spielen. Läuft bis zum Ende des Spiels
      * in einer Schleife.
      */
@@ -54,6 +61,7 @@ class Spieler
 
     /**
      * Methode willkommenstextAusgeben
+     * 
      * Methode zum ausgeben des Begrüßungstextes.
      */
     private void willkommenstextAusgeben()
@@ -72,6 +80,7 @@ class Spieler
     
     /**
      * Methode verarbeiteBefehl
+     * 
      * Verarbeitet einen gegebenen Befehl und führt ihn ggf. aus.
      * 
      * @param befehl Der zu verarbeitende Befehl.
@@ -127,6 +136,7 @@ class Spieler
 
     /**
      * Methode hilfstextAusgeben
+     * 
      * Die Methode gibt Hilfsinformationen für den User aus.
      * Es wird eine kurze Beschreibung des Spiels gegeben,
      * sowie die Liste aller Begefehlswörter
@@ -142,6 +152,7 @@ class Spieler
 
     /**
      * Methode wechsleRaum
+     * 
      * Methode zum wechseln des Raumes.
      * Der User versucht in eine Richtung zu gehen. Wenn es einen Ausgang gibt,
      * wechselt der User in den neuen Raum, ansonsten gibt das Programm
@@ -173,6 +184,7 @@ class Spieler
 
     /**
      * Methode benutzen
+     * 
      * Die Methode benutzt einen Gegenstand im aktuellen Raum.
      * 
      * @param befehl Der Befehl, der den Gegenstand angibt
@@ -191,6 +203,7 @@ class Spieler
     
     /**
      * Methode take
+     * 
      * Die Methode schreibt etwas in einen Gegenstand,
      * der sich im aktuellen Raum befindet
      * 
@@ -221,6 +234,7 @@ class Spieler
     
     /**
      * Methode take
+     * 
      * Die Methode nimmt einen Gegenstand im aktuellen Raum auf.
      * 
      * @param befehl Der Befehl, der den Gegenstand angibt.
@@ -245,6 +259,7 @@ class Spieler
     
     /**
      * Methode reparieren
+     * 
      * Die Methode repariert einen Gegenstand im aktuellen Raum.
      * Bedingung dafür ist, dass das nötige Werkzeug im Inventar ist.
      * 
@@ -280,6 +295,7 @@ class Spieler
     
     /**
      * Methode inventar 
+     * 
      * Gibt eine Liste der Gegenstände, welche im Inventar sind, aus.
      */
     private void inventar()
@@ -293,6 +309,7 @@ class Spieler
     
     /**
      * Methode zuegeAusgeben
+     * 
      * Gibt die Anzahl der uebrigen Zuege aus.
      */
     private void zuegeAusgeben()
