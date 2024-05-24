@@ -1,25 +1,36 @@
-
 /**
- * Beschreiben Sie hier die Klasse Spielumgebung.
+ * Die Klasse Spielumgebung schafft die Spielumgebung in dem Spiel.
  * 
- * @author (Ihr Name) 
- * @version (eine Versionsnummer oder ein Datum)
+ * @author (Nicolas Lyer, Leif Bremer) 
+ * @version (Version 1, 24.05.2024)
  */
 public class Spielumgebung
 {
+    /**
+     * Spielumgebung Konstruktor
+     * Initialisiert ein Objekt, ohne spezielle Aktionen.
+     */
     public Spielumgebung(){
         
     }
     
     /**
      * Erzeuge alle Räume und verbinde ihre Ausgänge miteinander.
+     * 
+     * Diese Methode erstellt die verschiedenen Räume des Spiels,
+     * setzt die Ausgänge zwischen den Räumen
+     * und fügt einige Gegenstände in bestimmte Räume hinzu.
+     *
+     * @return Der Hauptraum, in dem das Spiel beginnt.
+
      */
     public Raum raeumeAnlegen()
     {
+        // Deklaration der Räume
         Raum hauptRaum, buero, lager,untererMotor, obererMotor, reaktor, 
         sicherheitsRaum, ersteHilfe, elektronik;
 
-        // die Räume erzeugen
+        // Instanziierung der Räume
         hauptRaum = new Raum("in dem Hauptraum");
         buero = new Raum("in dem Büro");
         lager = new Raum("in dem Lager");
@@ -67,6 +78,6 @@ public class Spielumgebung
         reaktor.setzeAusgang("rechts", obererMotor);
         reaktor.fuegeGegenstandHinzu("Reaktor", new Kaputt(werkzeugkasten)); 
     
-        return hauptRaum;  // das Spiel startet draussen
+        return hauptRaum;  // das Spiel startet im Hauptraum
     }
 }
