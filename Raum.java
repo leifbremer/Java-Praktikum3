@@ -11,8 +11,8 @@ import java.util.HashMap;
  * Für jeden existierenden Ausgang hält ein Raum eine Referenz auf 
  * den benachbarten Raum.
  * 
- * @author (Nicolas Lyer, Leif Bremer) 
- * @version (Version 1, 24.05.2024)
+ * @author (Michael Kölling, David J. Barnes, Nicolas Lyer, Leif Bremer)
+ * @version (Version 2, 24.05.2024)
  */
 
 class Raum 

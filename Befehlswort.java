@@ -2,8 +2,8 @@
 /**
  * Repräsentationen für alle gültigen Befehlswörter des Spiels.
  * 
- * @author  Michael Kölling und David J. Barnes
- * @version 31.07.2011
+ * @author  (Michael Kölling, David J. Barnes, Nicolas Lyer, Leif Bremer)
+ * @version (Version 2, 24.05.2024)
  */
 public enum Befehlswort
 {

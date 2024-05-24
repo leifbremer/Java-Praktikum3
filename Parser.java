@@ -13,8 +13,8 @@ import java.util.StringTokenizer;
  * keinen bekannten Befehl enthält, dann liefert der Parser ein als 
  * unbekannter Befehl gekennzeichnetes Objekt zurück.
  * 
- * @author (Nicolas Lyer, Leif Bremer)
- * @version (Version 1, 24.05.2024)
+ * @author (Michael Kölling, David J. Barnes, Nicolas Lyer, Leif Bremer)
+ * @version (Version 2, 24.05.2024)
  */
 class Parser 
 {

@@ -1,6 +1,8 @@
 import java.util.HashMap;
 
 /**
+ * Klasse Befehlswörter
+ *
  * Diese Klasse hält eine Aufzählung aller Befehlswörter, die der Spieler 
  * eingeben kann. Mit ihrer Hilfe werden eingetippte Befehle erkannt. <br>
  * (Wolfgang Renz:) Sie werden jeweils einem reservierten
@@ -11,8 +13,8 @@ import java.util.HashMap;
  * Sprachen geben, z.B. "go", "walk", "gehe", "nach".<br>
  * Auf diese Weise gewinnt man durch Nutzung von enum Befehlswort Flexibilität.
  *
- * @author  Michael Kölling und David J. Barnes, Wolfgang Renz
- * @version 31.07.2011, April 2014
+ * @author  (Michael Kölling, David J. Barnes, Wolfgang Renz, Nicolas Lyer, Leif Bremer)
+ * @version 31.07.2011, April 2014, Mau 2024
  */
 
 class Befehlswoerter

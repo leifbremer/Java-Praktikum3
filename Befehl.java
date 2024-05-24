@@ -10,7 +10,7 @@
  * Wenn der Befehl nur aus einem Wort bestand, dann ist das
  * zweite Wort <null>.
  * 
- * @author (Nicolas Lyer, Leif Bremer)
+ * @author (Michael Kölling, David J. Barnes, Nicolas Lyer, Leif Bremer)
  * @version (Version 1, 24.05.2024)
  */
 

@@ -8,8 +8,8 @@ import java.util.HashMap;
  * Zu den Eigenschaften zählen der aktuelle Raum,
  * das Inventar und die Anzahl der verbleibenden Züge des Users.
  * 
- * @author (Nicolas Lyer, Leif Bremer) 
- * @version (Version 1, 24.05.2024)
+ * @author (Michael Kölling, David J. Barnes, Nicolas Lyer, Leif Bremer)
+ * @version (Version 2, 24.05.2024)
  */
 
 class Spieler 
