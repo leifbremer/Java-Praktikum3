@@ -2,8 +2,6 @@
  * Objekte dieser Klasse halten Informationen über Befehle,
  * die der Benutzer eingegeben hat. Ein Befehl besteht momentan
  * aus zwei Teilen: einem Befehlswort und einem String.
- * Beim Befehl "nimm karte" beispielsweise sind die beiden
- * Teile NIMM und "karte".
  * 
  * Befehle werden von Benutzern dieser Klasse auf Gültigkeit
  * überprüft. Wenn ein Spieler einen ungültigen Befehl eingegeben
@@ -12,8 +10,8 @@
  * Wenn der Befehl nur aus einem Wort bestand, dann ist das
  * zweite Wort <null>.
  * 
- * @author  Michael Kölling und David J. Barnes
- * @version 31.07.2011
+ * @author (Nicolas Lyer, Leif Bremer)
+ * @version (Version 1, 24.05.2024)
  */
 
 class Befehl
@@ -22,8 +20,11 @@ class Befehl
     private String zweitesWort;
 
     /**
+     * Konstruktor Befehl
+     * 
      * Erzeuge ein Befehlsobjekt. beide Parameter müssen angegeben werden,
      * aber der zweite darf 'null' sein.
+     * 
      * @param befehlswort das Befehlswort. UNKNOWN, wenn dieser Befehl nicht
      *                   vom Spiel erkannt wurde.
      * @param zweitesWort Das zweite Wort des Befehls. Darf null sein.
@@ -35,9 +36,12 @@ class Befehl
     }
 
     /**
+     * Methode Befehlswort
+     * 
      * Liefere das Befehlswort (das erste Wort) dieses Befehls.
      * Wenn der Befehl nicht verstanden wurde, ist das Ergebnis
      * UNKNOWN.
+     * 
      * @return das Befehlswort.
      */
     public Befehlswort gibBefehlswort()
@@ -46,6 +50,8 @@ class Befehl
     }
 
     /**
+     * Methode gibZweitesWort
+     * 
      * @return Das zweite Wort dieses Befehls. Liefere 'null', wenn
      * es kein zweites Wort gab.
      */
@@ -55,6 +61,8 @@ class Befehl
     }
 
     /**
+     * Methode istUnbekannt
+     * 
      * @return 'true', wenn dieser Befehl nicht verstanden wurde.
      */
     public boolean istUnbekannt()
@@ -63,6 +71,8 @@ class Befehl
     }
 
     /**
+     * Methode hatZweitesWort
+     * 
      * @return 'true', wenn dieser Befehl ein zweites Wort hat.
      */
     public boolean hatZweitesWort()
