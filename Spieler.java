@@ -1,9 +1,10 @@
 import java.util.HashMap;
 
 /**
- * 
- * Hallo Test 23
- * 
+ * Die Klasse Spieler repräsentiert den User des Spiels.
+ * Die wichtigen Eigenschaften des Users werden in der Klasse verarbeitet.
+ * Zu den Eigenschaften zählen der aktuelle Raum,
+ * das Inventar und die Anzahl der verbleibenden Züge des Users.
  */
 
 class Spieler 
@@ -13,17 +14,20 @@ class Spieler
     private HashMap<String,Gegenstand> inventar;
     private int zuege;
     /**
-     * Erzeuge ein Spiel und initialisiere die interne Raumkarte.
+     * Konstruktor der Klasse Spieler.
+     * Inititalisierung des aktuellen Raums, des Parsers, des Inventars
+     * und der Anzahl der Züge des Users.
      */
     public Spieler() 
     {
         aktuellerRaum = new Spielumgebung().raeumeAnlegen();
         parser = new Parser();
         inventar = new HashMap<String, Gegenstand>();
-        zuege = 30;
+        zuege = 50;
     }
 
     /**
+     * Methode spielen
      * Die Hauptmethode zum Spielen. Läuft bis zum Ende des Spiels
      * in einer Schleife.
      */
@@ -49,7 +53,8 @@ class Spieler
     }
 
     /**
-     * Einen Begrüßungstext für den Spieler ausgeben.
+     * Methode willkommenstextAusgeben
+     * Methode zum ausgeben des Begrüßungstextes.
      */
     private void willkommenstextAusgeben()
     {
@@ -64,11 +69,15 @@ class Spieler
         System.out.println(aktuellerRaum.gibLangeBeschreibung());
     }
 
+    
     /**
-     * Verarbeite einen gegebenen Befehl (führe ihn aus).
+     * Methode verarbeiteBefehl
+     * Verarbeitet einen gegebenen Befehl und führt ihn ggf. aus.
+     * 
      * @param befehl Der zu verarbeitende Befehl.
      * @return 'true', wenn der Befehl das Spiel beendet, 'false' sonst.
      */
+    
     private boolean verarbeiteBefehl(Befehl befehl) 
     {
         boolean moechteBeenden = false;
@@ -116,12 +125,11 @@ class Spieler
         return moechteBeenden;
     }
 
-    // Implementierung der Benutzerbefehle:
-
     /**
-     * Gib Hilfsinformationen aus.
-     * Hier geben wir eine etwas alberne und unklare Beschreibung
-     * aus, sowie eine Liste der Befehlswörter.
+     * Methode hilfstextAusgeben
+     * Die Methode gibt Hilfsinformationen für den User aus.
+     * Es wird eine kurze Beschreibung des Spiels gegeben,
+     * sowie die Liste aller Begefehlswörter
      */
     private void hilfstextAusgeben() 
     {
@@ -133,9 +141,13 @@ class Spieler
     }
 
     /**
-     * Versuche, in eine Richtung zu gehen. Wenn es einen Ausgang gibt,
-     * wechsele in den neuen Raum, ansonsten gib eine Fehlermeldung
-     * aus.
+     * Methode wechsleRaum
+     * Methode zum wechseln des Raumes.
+     * Der User versucht in eine Richtung zu gehen. Wenn es einen Ausgang gibt,
+     * wechselt der User in den neuen Raum, ansonsten gibt das Programm
+     * eine Fehlermeldung aus.
+     * 
+     * @param befehl Der Befehl, der die Richtung angibt.
      */
     private void wechsleRaum(Befehl befehl) 
     {
@@ -159,6 +171,12 @@ class Spieler
         }
     }
 
+    /**
+     * Methode benutzen
+     * Die Methode benutzt einen Gegenstand im aktuellen Raum.
+     * 
+     * @param befehl Der Befehl, der den Gegenstand angibt
+     */
     private void benutzen(Befehl befehl)
     {
         Gegenstand gegenstand = aktuellerRaum.gibGegenstand(befehl.gibZweitesWort());
@@ -171,6 +189,13 @@ class Spieler
         System.out.println(gegenstand.benutzen());
     }
     
+    /**
+     * Methode take
+     * Die Methode schreibt etwas in einen Gegenstand,
+     * der sich im aktuellen Raum befindet
+     * 
+     * @param befehl Der Befehl, der den Gegenstand angibt.
+     */
     private void write(Befehl befehl)
     {
         boolean erfolg;
@@ -194,6 +219,12 @@ class Spieler
         }
     }
     
+    /**
+     * Methode take
+     * Die Methode nimmt einen Gegenstand im aktuellen Raum auf.
+     * 
+     * @param befehl Der Befehl, der den Gegenstand angibt.
+     */
     private void take(Befehl befehl)
     {
         Gegenstand gegenstand = aktuellerRaum.gibGegenstand(befehl.gibZweitesWort());
@@ -211,6 +242,15 @@ class Spieler
         
         System.out.println("Das können Sie nicht aufheben");
     }
+    
+    /**
+     * Methode reparieren
+     * Die Methode repariert einen Gegenstand im aktuellen Raum.
+     * Bedingung dafür ist, dass das nötige Werkzeug im Inventar ist.
+     * 
+     * @param befehl Der Befehl, der den Gegenstand angibt
+     * @return 'true', wenn das Spiel gewonnen ist, sonst 'false'
+     */
     private boolean reparieren(Befehl befehl)
     {
         Gegenstand zuReparieren = aktuellerRaum.gibGegenstand(befehl.gibZweitesWort());
@@ -239,8 +279,8 @@ class Spieler
     }
     
     /**
-     * Methode inventar
-     * Gibt eine Liste
+     * Methode inventar 
+     * Gibt eine Liste der Gegenstände, welche im Inventar sind, aus.
      */
     private void inventar()
     {
@@ -263,8 +303,13 @@ class Spieler
     }
     
     /**
-     * "quit" wurde eingegeben. Überprüfe den Rest des Befehls,
+     * Methode beenden
+     * 
+     * Wenn "quit" eingegeben wurde. Überprüfe den Rest des Befehls,
      * ob das Spiel wirklich beendet werden soll.
+     * Falls kein Zweites Wort eingegeben wrd, beende das Spiel.
+     * 
+     * @param befehl Der Befehl zum Beenden des Spiels.
      * @return 'true', wenn der Befehl das Spiel beendet, 'false' sonst.
      */
     private boolean beenden(Befehl befehl) 
