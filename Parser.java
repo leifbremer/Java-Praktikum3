@@ -3,7 +3,7 @@ import java.util.StringTokenizer;
 
 /**
  * Dieser Parser liest Benutzereingaben und wandelt sie in
- * Befehle für das Adventure-Game um. Bei jedem Aufruf
+ * Befehle für das Reaktor-Spiel um. Bei jedem Aufruf
  * liest er eine Zeile von der Konsole und versucht, diese als
  * einen Befehl aus bis zu zwei Wörtern zu interpretieren. Er
  * liefert den Befehl als ein Objekt der Klasse Befehl zurück.
@@ -13,8 +13,8 @@ import java.util.StringTokenizer;
  * keinen bekannten Befehl enthält, dann liefert der Parser ein als 
  * unbekannter Befehl gekennzeichnetes Objekt zurück.
  * 
- * @author  Michael Kölling und David J. Barnes
- * @version 31.07.2011
+ * @author (Nicolas Lyer, Leif Bremer)
+ * @version (Version 1, 24.05.2024)
  */
 class Parser 
 {
@@ -31,6 +31,10 @@ class Parser
     }
 
     /**
+     * Liest die nächste Eingabezeile des Users ein.
+     * Zerlegt sie in erstes Wort und zweites Wort.
+     * Gibt den Befehl des Users zurück.
+     * 
      * @return Den nächsten Befehl des Benutzers.
      */
     public Befehl liefereBefehl() 
@@ -57,7 +61,9 @@ class Parser
     }
 
     /**
-     * Gib eine Liste der bekannten Befehlswörter aus.
+     * Methode zeigeBefehle
+     *
+     * Gibt eine Liste der bekannten Befehlswörter aus.
      */
     public void zeigeBefehle()
     {
