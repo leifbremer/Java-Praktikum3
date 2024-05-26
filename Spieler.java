@@ -70,8 +70,8 @@ class Spieler
         System.out.println("Willkommen!");
         System.out.println("Sie befinden sich in einem Reaktor.");
         System.out.println("KRRRCH KRRRCH! Oh Nein, hören Sie das? Der Reaktor droht in die Luft zu gehen!");
-        System.out.println("Sie müssen den Reaktor reparieren bevor alles in die Luft fliegt!");
-        System.out.println("Aber sein Sie vorsichtig! Sie haben nur 30 Züge. Wählen Sie also mit Bedacht.");
+        System.out.println("Sie müssen den Reaktor reparieren, bevor alles in die Luft fliegt!");
+        System.out.println("Aber sein Sie vorsichtig! Sie haben nur 50 Züge. Wählen Sie also mit Bedacht.");
         System.out.println("Tippen sie 'help', wenn Sie Hilfe brauchen.");
         System.out.println();
         System.out.println(aktuellerRaum.gibLangeBeschreibung());
