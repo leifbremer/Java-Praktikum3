@@ -12,7 +12,6 @@ public abstract class Gegenstand
     /**
      * Methode benutzen
      *
-     * Der Gegenstand kann benutzt werden.
      *
      * @return Eine Ausgabe, dass der Gegenstand nicht benutzt werden kann.
      */
@@ -25,7 +24,7 @@ public abstract class Gegenstand
      * 
      * Eine Methode um etwas in den Gegenstand einzugeben.
      *
-     * @return 'false' wenn keine Eingabe erfolgt.
+     * @return 'false' da keine Eingabe moeglich.
      */
     public boolean eingeben(){
         return false;
@@ -34,9 +33,9 @@ public abstract class Gegenstand
     /**
      * Methode getWo
      * 
-     * Eine Methode, um den Raum des Gegenstandes zu erhalten.
+     * Eine Methode, um den Raum zu erhalten in dem etwas veraendert werden soll.
      * 
-     * @return 'null'.
+     * @return 'null' wenn nichts veraendert werden soll.
      */
     public Raum getWo(){
         return null;
@@ -46,6 +45,7 @@ public abstract class Gegenstand
      * Methode reparieren
      *
      * Eine Methode, um einen Gegenstand zu reparieren.
+     * Platzehalter fuer die gegenstaende die nicht repariert werden koennen.
      *
      */
     public void reparieren(){

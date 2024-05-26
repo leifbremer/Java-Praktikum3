@@ -61,9 +61,9 @@ public class Eingabe extends Gegenstand
     /**
      * Methode getWo
      * 
-     * Gibt den Raum, in der die Eingabe stattfand zurück.
+     * Gibt den Raum, in dem etwas veraendert werden soll.
      *
-     * @return Der Raum, in der die Eingabe stattfand zurück.
+     * @return Der Raum, in dem etwas veraendert werden soll.
      */
     public Raum getWo(){
         return raumVon;
