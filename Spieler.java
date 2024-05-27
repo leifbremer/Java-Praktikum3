@@ -26,10 +26,8 @@ class Spieler
      */
     public Spieler() 
     {
-        aktuellerRaum = new Spielumgebung().raeumeAnlegen();
         parser = new Parser();
         inventar = new HashMap<String, Gegenstand>();
-        zuege = 50;
     }
 
     /**
@@ -40,6 +38,8 @@ class Spieler
      */
     public void spielen() 
     {            
+        aktuellerRaum = new Spielumgebung().raeumeAnlegen();
+        zuege = 20;
         willkommenstextAusgeben();
 
         // Die Hauptschleife. Hier lesen wir wiederholt Befehle ein
@@ -47,8 +47,6 @@ class Spieler
 
         boolean beendet = false;
         while (! beendet && zuege != 0) {
-            zuegeAusgeben();
-            zuege--;
             Befehl befehl = parser.liefereBefehl();
             beendet = verarbeiteBefehl(befehl);
         }
@@ -71,7 +69,7 @@ class Spieler
         System.out.println("Sie befinden sich in einem Reaktor.");
         System.out.println("KRRRCH KRRRCH! Oh Nein, hören Sie das? Der Reaktor droht in die Luft zu gehen!");
         System.out.println("Sie müssen den Reaktor reparieren, bevor alles in die Luft fliegt!");
-        System.out.println("Aber sein Sie vorsichtig! Sie haben nur 50 Züge. Wählen Sie also mit Bedacht.");
+        System.out.println("Aber sein Sie vorsichtig! Sie haben nur 20 Züge. Wählen Sie also mit Bedacht.");
         System.out.println("Tippen sie 'help', wenn Sie Hilfe brauchen.");
         System.out.println();
         System.out.println(aktuellerRaum.gibLangeBeschreibung());
@@ -144,7 +142,6 @@ class Spieler
     private void hilfstextAusgeben() 
     {
         System.out.println("Sie müssen den Reaktor reparieren.");
-        System.out.println("Anzahl verbleibender Züge: " + zuege);
         System.out.println("\t");
         System.out.println("Ihnen stehen folgende Befehle zur Verfügung:");
         parser.zeigeBefehle();
@@ -179,6 +176,8 @@ class Spieler
         else {
             aktuellerRaum = naechsterRaum;
             System.out.println(aktuellerRaum.gibLangeBeschreibung());
+            zuege--;
+            zuegeAusgeben();
         }
     }
 
