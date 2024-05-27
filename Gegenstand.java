@@ -68,7 +68,7 @@ public abstract class Gegenstand
      *
      * Eine Methode, um den Gegenstand aufzuheben.
      *
-     * @return 'false'.
+     * @return 'false' da nicht aufhebbar.
      */
     public boolean aufheben(){
         return false;

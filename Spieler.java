@@ -69,7 +69,7 @@ class Spieler
         System.out.println("Sie befinden sich in einem Reaktor.");
         System.out.println("KRRRCH KRRRCH! Oh Nein, hören Sie das? Der Reaktor droht in die Luft zu gehen!");
         System.out.println("Sie müssen den Reaktor reparieren, bevor alles in die Luft fliegt!");
-        System.out.println("Aber sein Sie vorsichtig! Sie haben nur 20 Züge. Wählen Sie also mit Bedacht.");
+        System.out.println("Aber sein Sie vorsichtig! Sie haben nur " +zuege+" Züge. Wählen Sie also mit Bedacht.");
         System.out.println("Tippen sie 'help', wenn Sie Hilfe brauchen.");
         System.out.println();
         System.out.println(aktuellerRaum.gibLangeBeschreibung());
@@ -250,6 +250,7 @@ class Spieler
         if(gegenstand.aufheben()){
             inventar.put(befehl.gibZweitesWort(),gegenstand);
             aktuellerRaum.removeItem(befehl.gibZweitesWort());
+            System.out.println("Sie haben " + befehl.gibZweitesWort() +" aufgehoben");
             return;
         }
         
@@ -299,6 +300,7 @@ class Spieler
      */
     private void inventar()
     {
+        
         System.out.println("Sie haben folgende Gegenstände: ");
         System.out.println();
         for(String gegenstand : inventar.keySet()){
@@ -314,8 +316,6 @@ class Spieler
     private void zuegeAusgeben()
     {
         System.out.println("Züge: " + zuege);
-        System.out.println();
-        System.out.println();
     }
     
     /**

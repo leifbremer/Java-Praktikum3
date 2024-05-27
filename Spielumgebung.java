@@ -49,6 +49,7 @@ public class Spielumgebung
         hauptRaum.setzeAusgang("oben", obererMotor);
         hauptRaum.setzeAusgang("unten", lager);
         hauptRaum.setzeAusgang("rechts", buero);
+        hauptRaum.fuegeGegenstandHinzu("Tipp", new Hinweis("Der Reaktor befindet sich oben rechts"));
 
         lager.setzeAusgang("oben", hauptRaum);
         lager.setzeAusgang("unten", untererMotor);
@@ -57,6 +58,7 @@ public class Spielumgebung
 
         elektronik.setzeAusgang("rechts", lager);
         elektronik.fuegeGegenstandHinzu("Spannungseingabe", new Eingabe("187", obererMotor,"Geben Sie die passende Spannung als Zahl ein. (Ohne Volt)"));
+        elektronik.fuegeGegenstandHinzu("Zettel", new Hinweis("Um die Tür zu reparieren muss hier die richtige Spannung eingegeben werden."));
         
         untererMotor.setzeAusgang("oben", lager);
         untererMotor.fuegeGegenstandHinzu("Widerstand", new Hinweis("Widerstand: 170 Ohm"));
