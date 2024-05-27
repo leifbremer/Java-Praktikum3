@@ -49,7 +49,7 @@ public class Spielumgebung
         hauptRaum.setzeAusgang("oben", obererMotor);
         hauptRaum.setzeAusgang("unten", lager);
         hauptRaum.setzeAusgang("rechts", buero);
-        hauptRaum.fuegeGegenstandHinzu("Tipp", new Hinweis("Der Reaktor befindet sich oben rechts"));
+        hauptRaum.fuegeGegenstandHinzu("Tipp", new Hinweis("Der Reaktor befindet sich oben links"));
 
         lager.setzeAusgang("oben", hauptRaum);
         lager.setzeAusgang("unten", untererMotor);
